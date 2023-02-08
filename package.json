@@ -1,0 +1,25 @@
+{
+  "name": "vite-tailwind-starter",
+  "version": "1.0.0",
+  "keywords": ["vite", "tailwind"],
+  "author": "Peter Broschwitz <peter.broschwitz@gmail.com>",
+  "description": "Vite Tailwind Starter supporting multiple html files",
+  "license": "MIT",
+  "main": "tailwind.config.js",
+  "scripts": {
+    "start": "npm install && npm run dev",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "tailwindcss": "^3.2.4"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.30.0",
+    "typescript": "^4.9.3",
+    "postcss": "^8.4.21",
+    "autoprefixer": "^10.4.13",
+    "vite": "^4.1.0"
+  }
+}
