@@ -3,75 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Index</title>
-  <meta name="description" content="Some description on index page" />
+  <title>Privacy</title>
+  <meta name="description" content="Some description on privacy page" />
   <link rel="icon" type="image/png" href="/img/favicon.svg">
   <link href="/css/styles.css" rel="stylesheet">
-  <style>
-    :popover-open {
-      position: absolute;
-      inset: unset;
-      bottom: 5px;
-      right: 5px;
-    }
-
-    @media all and (max-width: 600px) {
-      :popover-open {
-        left: 5px;
-      }
-    }
-  </style>
+  <script type="module" defer src="/js/scripts.js"></script>
 </head>
 <body class="meta-page">
   <h1>Index</h1>
-  <button id="toggleBtn">Toggle popover help UI</button>
-
-  <p id="keyboard-help-para">Click the above button or press "h" to get help with using our awesome app.</p>
-
-  <div id="mypopover">
-    <h2>Help!</h2>
-
-    <p>You can use the following commands to control the app</p>
-
+  <nav>
     <ul>
-      <li>Press <ins>C</ins> to order cheese</li>
-      <li>Press <ins>T</ins> to order tofu</li>
-      <li>Press <ins>B</ins> to order bacon</li>
-      <hr />
-      <li>Say "Service" to summon the robot waiter to take your order</li>
-      <li>Say "Escape" to engage the ejector seat</li>
+      <li><a href="/popover-1.html">Popover 1 - Basic</a></li>
+      <li><a href="/popover-2.html">Popover 2 - Animation Keyframes</a></li>
     </ul>
-  </div>
-  <script>
-    function supportsPopover() {
-      return HTMLElement.prototype.hasOwnProperty("popover");
-    }
-
-    const popover = document.getElementById("mypopover");
-    const toggleBtn = document.getElementById("toggleBtn");
-
-    const keyboardHelpPara = document.getElementById("keyboard-help-para");
-
-    const popoverSupported = supportsPopover();
-
-    if (popoverSupported) {
-      popover.popover = "auto";
-      toggleBtn.popoverTargetElement = popover;
-      toggleBtn.popoverTargetAction = "toggle";
-
-      document.addEventListener("keydown", (event) => {
-        if (event.key === "h") {
-          popover.togglePopover();
-        }
-      });
-
-      // Show the popover after 3 seconds
-      setTimeout(() => {
-        popover.showPopover();
-      }, 3000);
-    } else {
-      alert("Popover not supported");
-    }
-  </script>
+  </nav>
 </body>
 </html>

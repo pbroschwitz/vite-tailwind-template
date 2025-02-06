@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en" class="sm:scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Legal</title>
+  <meta name="description" content="Some description on legal page" />
+  <link rel="icon" type="image/png" href="/img/favicon.svg">
+  <style>
+    html {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+  
+  [popover] {
+    font-size: 1.2rem;
+    padding: 10px;
+    animation: fade-out 0.7s ease-out;
+  }
+  
+  [popover]:popover-open {
+    animation: fade-in 0.7s ease-out;
+  }
+  
+  [popover]:popover-open::backdrop {
+    animation: backdrop-fade-in 0.7s ease-out forwards;
+  }
+  
+  /* Animation keyframes */
+  
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: scaleX(1);
+    }
+  }
+  
+  @keyframes fade-out {
+    0% {
+      opacity: 1;
+      transform: scaleX(1);
+      /* display needed on the closing animation to keep the popover
+      visible until the animation ends */
+      display: block;
+    }
+  
+    100% {
+      opacity: 0;
+      transform: scaleX(0);
+      /* display: none not required here because it is the default value
+      for a closed popover, but including it so the behavior is clear */
+      display: none;
+    }
+  }
+  
+  @keyframes backdrop-fade-in {
+    0% {
+      background-color: rgb(0 0 0 / 0%);
+    }
+  
+    100% {
+      background-color: rgb(0 0 0 / 25%);
+    }
+  }
+  </style>
+</head>
+<body class="meta-page">
+  <h1>Legal</h1>
+  <div popover="auto" id="mypopover">I'm a Popover! I should animate.</div>
+  <script>
+    const popover = document.getElementById("mypopover");
+    popover.popover = "manual";
+    setTimeout(() => {
+      popover.showPopover();
+    }, 2000);
+  </script>
+</body>
+</html>
