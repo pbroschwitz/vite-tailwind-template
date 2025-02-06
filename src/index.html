@@ -64,6 +64,11 @@
           popover.togglePopover();
         }
       });
+
+      // Show the popover after 3 seconds
+      setTimeout(() => {
+        popover.showPopover();
+      }, 3000);
     } else {
       alert("Popover not supported");
     }
