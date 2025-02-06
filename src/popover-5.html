@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Basic declarative popover example</title>
+    <style>
+      .container {
+        position: relative;
+        top: 100px;
+        left: 150px;
+        width: fit-content;
+        outline: 1px dashed red;
+      }
+      #mypopover[popover] {
+        position: fixed !important;
+        /* inset: unset !important; */
+        margin: unset !important;
+        transform: translateX(-50%);
+      }
+    </style>
+  </head>
+  <body>
+    <button popovertarget="mypopover" popovertargetaction="hide">
+      Hide popover
+    </button>
+
+    <div class="container">
+      <button id="showButton" popovertarget="mypopover" popovertargetaction="show">
+        Show popover
+      </button>
+      <div id="mypopover" popover>Popover content</div>
+    </div>
+    <script>
+      const popover = document.getElementById('mypopover');
+      const button = document.getElementById('showButton');
+      
+      popover.addEventListener('beforetoggle', (event) => {
+        if (event.newState === "open") {
+          const buttonRect = button.getBoundingClientRect();
+          popover.style.top = `${buttonRect.top - 56}px`;
+          popover.style.left = `${buttonRect.left + (buttonRect.width / 2)}px`;
+        }
+      });
+    </script>
+  </body>
+</html>
